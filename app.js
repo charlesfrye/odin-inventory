@@ -8,6 +8,7 @@ const rateLimit = require("express-rate-limit");
 const compression = require("compression");
 
 const port = process.env.PORT || 3000;
+const router = require("./router");
 
 const app = express();
 app.set("view engine", "ejs");
@@ -82,6 +83,8 @@ app.get("/", (req, res) => {
     title: "Inventory Home"
   });
 });
+
+app.use("/inventory", router);
 
 app.listen(port, () => {
   logger.info(`Server is running on port ${port}`);
