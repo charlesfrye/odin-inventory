@@ -3,11 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-    a {
-        @apply text-yellow-vivid-300
-    }
-
     a:hover {
-        @apply text-yellow-vivid-400
+        @apply text-yellow-vivid-500
     }
 }
