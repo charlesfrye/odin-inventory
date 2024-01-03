@@ -13,6 +13,7 @@
   "author": "Charles Frye",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@shelf/jest-mongodb": "^4.2.0",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -38,5 +39,8 @@
     "mongoose": "^8.0.3",
     "morgan": "^1.10.0",
     "winston": "^3.11.0"
+  },
+  "jest": {
+    "preset": "@shelf/jest-mongodb"
   }
 }
