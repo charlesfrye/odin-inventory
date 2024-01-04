@@ -8,6 +8,7 @@ const rateLimit = require("express-rate-limit");
 const compression = require("compression");
 
 const port = process.env.PORT || 3000;
+const mongoose = require("mongoose");
 const router = require("./router");
 
 const app = express();
@@ -74,9 +75,14 @@ app.use(compression());
 app.use(limiter);
 app.use(express.static("public"));
 
-app.get("/hello", (req, res) => {
-  res.render("hello", { title: "Hello World" });
-});
+mongoose.set("strictQuery", false);
+
+const mongoDB = process.env.MONGODB_URI;
+
+async function main() {
+  await mongoose.connect(mongoDB);
+}
+main().catch((err) => logger.error(err));
 
 app.get("/", (req, res) => {
   res.render("index", {
