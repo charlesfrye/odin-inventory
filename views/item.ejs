@@ -8,4 +8,17 @@
     <p class="text-sm inline"><%= item.stock %> in stock</p>
     <p class="text-sm inline">at <%= item.price_friendly %></p>
   </div>
+  <div class="flex mt-4 space-x-4">
+    <form action="<%= item.url %>/update" method="GET">
+      <button type="submit"
+        class="text-xl font-bold px-4 py-2 bg-yellow-vivid-500 text-blue-grey-900 rounded-lg border-2 hover:bg-yellow-vivid-600 shadow">
+        Edit Item
+      </button>
+    </form>
+    <form action="<%= item.url %>/delete" method="POST">
+      <button type="submit" class="px-4 py-2 hover:bg-red-500 text-xl font-bold rounded-lg border-2 shadow">
+        Delete Item
+      </button>
+    </form>
+</div>
 </div>
