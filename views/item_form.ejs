@@ -26,7 +26,7 @@
   <div>
     <select id="category" name="category" class="p-2 m-2 border rounded w-full bg-blue-grey-500 dark:bg-blue-grey-900">
       <% categories.forEach(function(category) { %>
-        <option value="<%= category._id %>" <%= item.category._id.toString() == category._id.toString() ? 'selected' : '' %>><%= category.name %></option>
+        <option value="<%= category._id %>" <%= item.category._id && category._id && item.category._id.toString() == category._id.toString() ? 'selected' : '' %>><%= category.name %></option>
       <% }); %>
     </select>
   </div>
