@@ -61,27 +61,27 @@ async function createCategories() {
     categoryCreate(
       0,
       "Costumes and Armor",
-      "Outfits and armors for protection and style."
+      "For heroes who rely on their iconic suits, whether for stealth, protection, or sheer style. This category includes everything from spandex suits to high-tech armor, catering to heroes from the nimble vigilante to the armored warrior. Whether it's for blending into the shadows or withstanding heavy attacks, these outfits are designed for functionality and flair."
     ),
     categoryCreate(
       1,
       "Gadgets and Tools",
-      "Tech gadgets and tools for the savvy hero."
+      "Essential for the tech-savvy hero or the detective type. This category features a range of gadgets, from grappling hooks to advanced communication devices. Perfect for heroes who rely on their wits and technological prowess to outmaneuver villains."
     ),
     categoryCreate(
       2,
       "Mystical Artifacts",
-      "Enchanted items for heroes who harness the mystic arts."
+      "For those who draw their power from the mystical and the arcane. This category includes enchanted items like magic wands, ancient tomes, and mystical amulets. It caters to sorcerers, witches, and any hero whose power source is the mystic arts."
     ),
     categoryCreate(
       3,
       "Superhuman Enhancements",
-      "Scientific and magical enhancements for superhuman abilities."
+      "Designed for heroes whose abilities come from advanced science or alien technology. This category offers a variety of serums, power suits, and bio-enhancements. It's for heroes who seek to augment their physical or mental capabilities beyond human limits."
     ),
     categoryCreate(
       4,
       "Utility Wear",
-      "Practical wearables for the everyday hero."
+      "Practical gear for the everyday hero. This category includes items like utility belts, multi-functional boots, and all-weather capes. It's for heroes who need to be prepared for anything, with gear that's as versatile as they are."
     )
   ]);
 }

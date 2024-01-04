@@ -1,0 +1,8 @@
+<%- contentFor('body') %>
+<div class="category-list mt-6">
+<% categories.forEach(function(category) { %>
+<div class="category mt-4">
+  <a class="text-xl" href=<%=category.url %>><%= category.name %></a>
+</div>
+<% });%>
+</div>

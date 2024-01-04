@@ -499,6 +499,15 @@ a:hover {
 .m-2 {
   margin: 0.5rem;
 }
+.mt-10 {
+  margin-top: 2.5rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.mt-6 {
+  margin-top: 1.5rem;
+}
 .mt-auto {
   margin-top: auto;
 }
@@ -564,6 +573,10 @@ a:hover {
 }
 .pt-40 {
   padding-top: 10rem;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 .text-3xl {
   font-size: 1.875rem;

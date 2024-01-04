@@ -1,10 +1,14 @@
 const express = require("express");
+const expressLayouts = require("express-ejs-layouts");
 
 const router = express.Router();
+
+router.use(expressLayouts);
 
 const categoryController = require("./controllers/categoryController");
 
 router.get("/categories", categoryController.category_list);
+router.get("/categories/:id", categoryController.category_get);
 
 router.get("/categories/create/", categoryController.category_add_get);
 router.post("/categories/create/", categoryController.category_add_post);
