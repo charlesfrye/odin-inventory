@@ -502,6 +502,9 @@ a:hover {
 .mt-10 {
   margin-top: 2.5rem;
 }
+.mt-2 {
+  margin-top: 0.5rem;
+}
 .mt-4 {
   margin-top: 1rem;
 }
@@ -510,6 +513,9 @@ a:hover {
 }
 .mt-auto {
   margin-top: auto;
+}
+.inline {
+  display: inline;
 }
 .flex {
   display: flex;
@@ -589,6 +595,10 @@ a:hover {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 .text-xl {
   font-size: 1.25rem;

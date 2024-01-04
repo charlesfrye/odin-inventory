@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const moment = require("moment");
 
 const { Schema } = mongoose;
 
@@ -35,6 +36,14 @@ const ItemSchema = new Schema(
 
 ItemSchema.virtual("url").get(function () {
   return `/inventory/items/${this._id}`;
+});
+
+ItemSchema.virtual("price_friendly").get(function () {
+  return `$${(this.price / 100).toFixed(2)}`;
+});
+
+ItemSchema.virtual("updatedAt_friendly").get(function () {
+  return moment(this.updatedAt).fromNow();
 });
 
 module.exports = mongoose.model("Item", ItemSchema);

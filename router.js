@@ -22,6 +22,7 @@ router.post("/categories/:id/delete", categoryController.category_delete_post);
 const itemController = require("./controllers/itemController");
 
 router.get("/items", itemController.item_list);
+router.get("/items/:id", itemController.item_get);
 
 router.get("/items/create", itemController.item_add_get);
 router.post("/items/create", itemController.item_add_post);

@@ -1,0 +1,10 @@
+<%- contentFor('body') %>
+<div class="item mt-10">
+  <a class="text-2xl"><%= item.name %></a>
+  <p class="font-light mt-4"><%= item.description %></p>
+  <div class="mt-2">
+    <p class="text-sm inline">As of <%= item.updatedAt_friendly %>:</p>
+    <p class="text-sm inline"><%= item.stock %> in stock</p>
+    <p class="text-sm inline">at <%= item.price_friendly %></p>
+  </div>
+</div>

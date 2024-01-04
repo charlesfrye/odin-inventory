@@ -8,6 +8,11 @@ exports.item_list = asyncHandler(async (req, res) => {
   res.render("items", { title: "Items", items });
 });
 
+exports.item_get = asyncHandler(async (req, res) => {
+  const item = await Item.findById(req.params.id).populate("category");
+  res.render("item", { title: item.name, item });
+});
+
 exports.item_add_get = asyncHandler(async (req, res) => {
   res.send("NOT IMPLEMENTED: Item add GET");
 });
