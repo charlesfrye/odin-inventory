@@ -1,0 +1,84 @@
+<%- contentFor('body') %>
+<h1 class="text-xl"><%= title %></h1>
+<form
+  method="post"
+  class="p-6 m-4 space-y-4"
+>
+  <div>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      placeholder="Item name here, 3-100 characters"
+      class="p-2 m-2 border rounded w-full bg-blue-grey-500 dark:bg-blue-grey-900"
+      value="<%= typeof item.name != 'undefined' ? item.name : '' %>"
+    />
+
+  </div>
+  <div>
+    <textarea
+      id="description"
+      name="description"
+      placeholder="Item description here, 3-1000 characters"
+      class="p-2 m-2 border rounded w-full h-32 bg-blue-grey-500 dark:bg-blue-grey-900"
+    ><%= typeof item.description != 'undefined' ? item.description : '' %></textarea>
+  </div>
+  <div>
+    <select id="category" name="category" class="p-2 m-2 border rounded w-full bg-blue-grey-500 dark:bg-blue-grey-900">
+      <% categories.forEach(function(category) { %>
+        <option value="<%= category._id %>" <%= item.category._id == category._id ? 'selected' : '' %>><%= category.name %></option>
+      <% }); %>
+    </select>
+  </div>
+  <div>
+    <input
+      type="number"
+      id="price"
+      name="price"
+      placeholder="Price in dollars"
+      class="p-2 m-2 border rounded w-full bg-blue-grey-500 dark:bg-blue-grey-900"
+      value="<%= typeof item.price != 'undefined' ? (item.price / 100).toFixed(2) : '' %>"
+      min="0"
+      step="0.01"
+    />
+  </div>
+  <div>
+    <input
+      type="number"
+      id="stock"
+      name="stock"
+      placeholder="Stock quantity"
+      class="p-2 m-2 border rounded w-full bg-blue-grey-500 dark:bg-blue-grey-900"
+      value="<%= typeof item.stock != 'undefined' ? item.stock : '' %>"
+      min="0"
+      step="1"
+    />
+  </div>
+  <div class="flex justify-center w-full">
+    <button
+      type="submit"
+      class="text-xl font-bold px-12 py-4 m-2 bg-yellow-vivid-500 text-blue-grey-900 rounded-lg border-2 hover:bg-yellow-vivid-600 shadow"
+    >
+      Done
+    </button>
+  </div>
+</form>
+<% if (errors) { %>
+    <% errors.forEach(function(error) { %>
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded error-message my-4" role="alert">
+            <p class="font-bold">Error</p>
+            <p><%= error.msg %></p>
+        </div>
+    <% }); %>
+    <script> // remove error messages
+        document.addEventListener("DOMContentLoaded", function() {
+          const errorMessages = document.querySelectorAll('.error-message');
+
+          errorMessages.forEach(function(message) {
+            setTimeout(function() {
+              message.style.display = 'none';
+            }, 5000);
+          });
+        });
+      </script>
+  <% } %>

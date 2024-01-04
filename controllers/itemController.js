@@ -1,4 +1,5 @@
 const asyncHandler = require("express-async-handler");
+const Category = require("../models/category");
 const Item = require("../models/item");
 
 exports.item_list = asyncHandler(async (req, res) => {
@@ -14,7 +15,13 @@ exports.item_get = asyncHandler(async (req, res) => {
 });
 
 exports.item_add_get = asyncHandler(async (req, res) => {
-  res.send("NOT IMPLEMENTED: Item add GET");
+  const allCategories = await Category.find();
+  res.render("item_form", {
+    title: "Add Item",
+    errors: [],
+    item: { category: {} },
+    categories: allCategories
+  });
 });
 
 exports.item_add_post = asyncHandler(async (req, res) => {
