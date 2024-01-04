@@ -11,20 +11,15 @@
       id="name"
       name="name"
       placeholder="Category name here, 3-100 characters"
-      required
-      minlength="3"
-      maxlength="100"
       class="p-2 m-2 border rounded w-full bg-blue-grey-500 dark:bg-blue-grey-900"
     />
+
   </div>
   <div>
     <textarea
       id="description"
       name="description"
       placeholder="Category description here, 3-1000 characters"
-      required
-      minlength="3"
-      maxlength="1000"
       class="p-2 m-2 border rounded w-full h-32 bg-blue-grey-500 dark:bg-blue-grey-900"
     ></textarea>
   </div>
@@ -37,3 +32,22 @@
     </button>
   </div>
 </form>
+<% if (errors) { %>
+    <% errors.forEach(function(error) { %>
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded error-message my-4" role="alert">
+            <p class="font-bold">Error</p>
+            <p><%= error.msg %></p>
+        </div>
+    <% }); %>
+    <script> // remove error messages
+        document.addEventListener("DOMContentLoaded", function() {
+          const errorMessages = document.querySelectorAll('.error-message');
+
+          errorMessages.forEach(function(message) {
+            setTimeout(function() {
+              message.style.display = 'none';
+            }, 5000);
+          });
+        });
+      </script>
+  <% } %>
