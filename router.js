@@ -8,7 +8,6 @@ router.use(expressLayouts);
 const categoryController = require("./controllers/categoryController");
 
 router.get("/categories", categoryController.category_list);
-router.get("/categories/:id", categoryController.category_get);
 
 router.get("/categories/create/", categoryController.category_add_get);
 router.post("/categories/create/", categoryController.category_add_post);
@@ -18,6 +17,8 @@ router.post("/categories/:id/update", categoryController.category_update_post);
 
 router.get("/categories/:id/delete", categoryController.category_delete_get);
 router.post("/categories/:id/delete", categoryController.category_delete_post);
+
+router.get("/categories/:id", categoryController.category_get);
 
 const itemController = require("./controllers/itemController");
 

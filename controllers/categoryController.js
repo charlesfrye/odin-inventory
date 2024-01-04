@@ -21,7 +21,7 @@ exports.category_get = asyncHandler(async (req, res) => {
 });
 
 exports.category_add_get = asyncHandler(async (req, res) => {
-  res.send("NOT IMPLEMENTED: Category add GET");
+  res.render("category_form", { title: "Add Category" });
 });
 
 exports.category_add_post = asyncHandler(async (req, res) => {
