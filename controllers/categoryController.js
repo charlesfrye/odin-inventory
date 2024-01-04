@@ -1,5 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const Category = require("../models/category");
+const Item = require("../models/item");
 
 exports.category_list = asyncHandler(async (req, res) => {
   const categories = await Category.find().sort([["name", "ascending"]]);
@@ -11,8 +12,10 @@ exports.category_list = asyncHandler(async (req, res) => {
 
 exports.category_get = asyncHandler(async (req, res) => {
   const category = await Category.findById(req.params.id);
+  const allItemsInCategory = await Item.find({ category: req.params.id });
   res.render("category", {
     title: category.name,
+    items: allItemsInCategory,
     category
   });
 });
