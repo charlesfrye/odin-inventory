@@ -8,4 +8,9 @@
       <a class="text-lg" href=<%=item.url %>><%= item.name %></a>
     </li>
     <% });%>
+    <form action="<%= category.url %>/delete" method="POST">
+      <button type="submit" class="px-4 py-2 mt-4 hover:bg-red-500 text-xl font-bold m-2 rounded-lg border-2 shadow">
+        Delete Category
+      </button>
+    </form>
 </div>
