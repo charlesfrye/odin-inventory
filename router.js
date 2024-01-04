@@ -22,15 +22,15 @@ router.get("/categories/:id", categoryController.category_get);
 const itemController = require("./controllers/itemController");
 
 router.get("/items", itemController.item_list);
-router.get("/items/:id", itemController.item_get);
 
 router.get("/items/create", itemController.item_add_get);
 router.post("/items/create", itemController.item_add_post);
 
+router.get("/items/:id", itemController.item_get);
+
 router.get("/items/:id/update", itemController.item_update_get);
 router.post("/items/:id/update", itemController.item_update_post);
 
-router.get("/items/:id/delete", itemController.item_delete_get);
 router.post("/items/:id/delete", itemController.item_delete_post);
 
 module.exports = router;
