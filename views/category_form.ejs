@@ -12,6 +12,7 @@
       name="name"
       placeholder="Category name here, 3-100 characters"
       class="p-2 m-2 border rounded w-full bg-blue-grey-500 dark:bg-blue-grey-900"
+      value="<%= typeof category.name != 'undefined' ? category.name : '' %>"
     />
 
   </div>
@@ -21,7 +22,7 @@
       name="description"
       placeholder="Category description here, 3-1000 characters"
       class="p-2 m-2 border rounded w-full h-32 bg-blue-grey-500 dark:bg-blue-grey-900"
-    ></textarea>
+    ><%= typeof category.description != 'undefined' ? category.description : '' %></textarea>
   </div>
   <div class="flex justify-center w-full">
     <button

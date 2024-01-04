@@ -15,7 +15,6 @@ router.post("/categories/create/", categoryController.category_add_post);
 router.get("/categories/:id/update", categoryController.category_update_get);
 router.post("/categories/:id/update", categoryController.category_update_post);
 
-router.get("/categories/:id/delete", categoryController.category_delete_get);
 router.post("/categories/:id/delete", categoryController.category_delete_post);
 
 router.get("/categories/:id", categoryController.category_get);

@@ -22,7 +22,11 @@ exports.category_get = asyncHandler(async (req, res) => {
 });
 
 exports.category_add_get = asyncHandler(async (req, res) => {
-  res.render("category_form", { title: "Add Category", errors: [] });
+  res.render("category_form", {
+    title: "Add Category",
+    errors: [],
+    category: {}
+  });
 });
 
 exports.category_add_post = [
@@ -63,10 +67,6 @@ exports.category_update_get = asyncHandler(async (req, res) => {
 
 exports.category_update_post = asyncHandler(async (req, res) => {
   res.send("NOT IMPLEMENTED: Category update POST");
-});
-
-exports.category_delete_get = asyncHandler(async (req, res) => {
-  res.send("NOT IMPLEMENTED: Category delete GET");
 });
 
 exports.category_delete_post = asyncHandler(async (req, res) => {
