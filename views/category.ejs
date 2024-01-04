@@ -8,9 +8,17 @@
       <a class="text-lg" href=<%=item.url %>><%= item.name %></a>
     </li>
     <% });%>
-    <form action="<%= category.url %>/delete" method="POST">
-      <button type="submit" class="px-4 py-2 mt-4 hover:bg-red-500 text-xl font-bold m-2 rounded-lg border-2 shadow">
-        Delete Category
-      </button>
-    </form>
+    <div class="flex mt-4 space-x-4">
+      <form action="<%= category.url %>/update" method="GET">
+        <button type="submit"
+          class="text-xl font-bold px-4 py-2 bg-yellow-vivid-500 text-blue-grey-900 rounded-lg border-2 hover:bg-yellow-vivid-600 shadow">
+          Edit Category
+        </button>
+      </form>
+      <form action="<%= category.url %>/delete" method="POST">
+        <button type="submit" class="px-4 py-2 hover:bg-red-500 text-xl font-bold rounded-lg border-2 shadow">
+          Delete Category
+        </button>
+      </form>
+  </div>
 </div>

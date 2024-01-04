@@ -32,15 +32,13 @@ exports.category_add_get = asyncHandler(async (req, res) => {
 exports.category_add_post = [
   body("name", "Category name must be between 3 and 100 characters")
     .trim()
-    .isLength({ min: 3, max: 100 })
-    .escape(),
+    .isLength({ min: 3, max: 100 }),
   body(
     "description",
-    "Category description must be between 3 and 1000 characters"
+    "Category description must be between 3 and 3000 characters"
   )
     .trim()
-    .isLength({ min: 3, max: 100 })
-    .escape(),
+    .isLength({ min: 3, max: 3000 }),
   asyncHandler(async (req, res) => {
     const errors = validationResult(req);
     const category = new Category({
@@ -62,13 +60,48 @@ exports.category_add_post = [
 ];
 
 exports.category_update_get = asyncHandler(async (req, res) => {
-  res.send("NOT IMPLEMENTED: Category update GET");
+  const category = await Category.findById(req.params.id);
+  res.render("category_form", {
+    title: "Update Category",
+    category,
+    errors: []
+  });
 });
 
-exports.category_update_post = asyncHandler(async (req, res) => {
-  res.send("NOT IMPLEMENTED: Category update POST");
-});
+exports.category_update_post = [
+  body("name", "Category name must be between 3 and 100 characters")
+    .trim()
+    .isLength({ min: 3, max: 100 }),
+  body(
+    "description",
+    "Category description must be between 3 and 3000 characters"
+  )
+    .trim()
+    .isLength({ min: 3, max: 3000 }),
+  asyncHandler(async (req, res) => {
+    const errors = validationResult(req);
+    const category = await Category.findById(req.params.id);
+
+    category.name = req.body.name;
+    category.description = req.body.description;
+
+    if (!errors.isEmpty()) {
+      res.render("category_form", {
+        title: "Add Category",
+        category,
+        errors: errors.array()
+      });
+    } else {
+      await category.save();
+      res.redirect(category.url);
+    }
+  })
+];
 
 exports.category_delete_post = asyncHandler(async (req, res) => {
-  res.send("NOT IMPLEMENTED: Category delete POST");
+  await Promise.all([
+    Item.deleteMany({ category: req.params.id }),
+    Category.findByIdAndDelete(req.params.id)
+  ]);
+  res.redirect("/inventory/categories");
 });
