@@ -70,10 +70,21 @@ const limiter = rateLimit({
 });
 
 app.use(cors());
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "'unsafe-inline'"] // Allows inline scripts
+      }
+    }
+  })
+);
 app.use(compression());
 app.use(limiter);
 app.use(express.static("public"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 mongoose.set("strictQuery", false);
 
