@@ -1,7 +1,11 @@
 const asyncHandler = require("express-async-handler");
+const Item = require("../models/item");
 
 exports.item_list = asyncHandler(async (req, res) => {
-  res.send("NOT IMPLEMENTED: Item list");
+  const items = await Item.find()
+    .populate("category")
+    .sort([["category.name", "ascending"]]);
+  res.render("items", { title: "Items", items });
 });
 
 exports.item_add_get = asyncHandler(async (req, res) => {

@@ -1,0 +1,8 @@
+<%- contentFor('body') %>
+<div class="item-list mt-6">
+<% items.forEach(function(item) { %>
+<div class="item mt-4">
+  <a class="text-lg" href=<%=item.url %>><%= item.name %></a>
+</div>
+<% });%>
+</div>
