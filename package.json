@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js",
+    "dev": "heroku local",
     "test": "npx jest",
     "build-css": "postcss src/css/styles.css -o public/css/compiled.css",
     "watch-css": "nodemon --config nodemon-css.json"
